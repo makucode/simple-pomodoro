@@ -3,6 +3,8 @@
 This App is a simple and minimalist Pomodoro-like clock.
 Built for fun with React and SASS, hosted on Heroku.
 
+All icons I use are from [Font Awesome](https://fontawesome.com/) ([License](https://fontawesome.com/license)).
+
 **Contact: [makucode@gmail.com](makucode@gmail.com)**
 
 ## Available Scripts / npm instructions
