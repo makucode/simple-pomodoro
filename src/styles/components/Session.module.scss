@@ -1,0 +1,39 @@
+@import "../globals";
+
+.Session {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.SessionTime {
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+
+    font-size: 6rem;
+}
+
+.SessionTimeDivider {
+    display: block;
+}
+
+.SessionTimeDivider::after,
+.SessionTimeDivider::before {
+    display: block;
+    width: 10px;
+    height: 10px;
+    content: "";
+
+    background-color: $light;
+
+    border-radius: 100px;
+}
+
+.SessionTimeDivider::after {
+    transform: translateY(6px);
+}
+
+.SessionTimeDivider::before {
+    transform: translateY(-6px);
+}

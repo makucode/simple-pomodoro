@@ -1,0 +1,24 @@
+@import "globals";
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: $dark;
+    color: $light;
+    font-family: $sans;
+}
+
+// Utility
+
+.Running {
+    fill: $green !important;
+    color: $green !important;
+}
+
+.Pause {
+    fill: $yellow !important;
+    color: $yellow !important;
+}

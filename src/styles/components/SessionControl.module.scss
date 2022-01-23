@@ -1,0 +1,18 @@
+@import "../globals";
+
+.SessionControl {
+    display: flex;
+    column-gap: 1rem;
+
+    margin: 0.5rem 0 1rem 0;
+
+    svg {
+        fill: $light;
+        cursor: pointer;
+        transition: all ease-in-out 0.25s;
+    }
+
+    svg:hover {
+        fill: $mid;
+    }
+}

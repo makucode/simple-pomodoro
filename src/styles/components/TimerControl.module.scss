@@ -1,0 +1,92 @@
+@import "../globals";
+
+.TimerControl {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 1rem;
+    width: $widthL;
+}
+
+.TimeControlTimer,
+.TimeControlBreak {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+}
+
+.Label {
+    color: $mid;
+    font-size: 1.25rem;
+}
+
+.Length {
+    font-size: 2rem;
+}
+
+.TimerController {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 1rem;
+
+    margin-top: 0.5rem;
+
+    span {
+        cursor: pointer;
+    }
+
+    .Inc,
+    .Dec {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 16px;
+        height: 16px;
+    }
+
+    .Inc::before,
+    .Inc::after,
+    .Dec::before {
+        position: absolute;
+        width: 16px;
+        height: 4px;
+
+        content: "";
+
+        border-radius: 100px;
+
+        background-color: $light;
+    }
+
+    .Inc::after {
+        transform: rotate(90deg);
+    }
+}
+
+.TimerControlDivider {
+    display: block;
+    width: 16px;
+    height: 16px;
+}
+
+.TimerControlDivider::before,
+.TimerControlDivider::after {
+    position: absolute;
+    display: block;
+    width: 4px;
+    height: 16px;
+
+    transform: translateX(8px);
+
+    content: "";
+
+    background-color: $mid;
+
+    border-radius: 100px;
+}
+
+.TimerControlDivider::after {
+    transform: rotate(90deg) translateY(-8px);
+}

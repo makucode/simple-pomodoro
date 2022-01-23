@@ -1,0 +1,21 @@
+@import "../globals";
+
+.Caption {
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: $mid;
+
+    transition: all ease-in-out 0.5s;
+}
+
+.CaptionRunning {
+    color: $blue;
+}
+
+.CaptionBreak {
+    color: $green;
+}
+
+.CaptionPause {
+    color: $yellow;
+}
