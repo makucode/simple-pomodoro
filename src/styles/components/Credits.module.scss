@@ -1,0 +1,26 @@
+@import "../globals";
+
+.Credits {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 0.5rem;
+
+    margin-top: 2rem;
+
+    font-size: 1rem;
+    color: $mid;
+
+    a {
+        height: 22px;
+    }
+
+    svg {
+        fill: $mid;
+        transition: all ease-in-out 0.25s;
+    }
+
+    svg:hover {
+        fill: $light;
+    }
+}

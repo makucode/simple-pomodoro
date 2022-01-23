@@ -3,6 +3,7 @@ import SessionControl from "./SessionControl";
 import TimerControl from "./TimerControl";
 import styles from "../styles/components/Timer.module.scss";
 import Caption from "./Caption";
+import Credits from "./Credits";
 
 const Timer = () => {
     return (
@@ -11,6 +12,7 @@ const Timer = () => {
             <Session />
             <SessionControl />
             <TimerControl />
+            <Credits />
         </div>
     );
 };

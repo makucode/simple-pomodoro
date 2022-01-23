@@ -11,6 +11,17 @@ body {
     font-family: $sans;
 }
 
+a {
+    color: $mid;
+    text-decoration: none;
+
+    transition: all ease-in-out 0.25s;
+}
+
+a:hover {
+    color: $light;
+}
+
 // Utility
 
 .Running {
