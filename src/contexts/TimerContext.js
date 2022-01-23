@@ -20,19 +20,21 @@ export const TimerProvider = ({ children }) => {
 
     // Sound
 
-    const [playEnd] = useSound(fx1, { volume: 0.5 });
-    const [playGo] = useSound(fx2, { volume: 0.5 });
+    const [playEnd] = useSound(fx1, { volume: 0.4 });
+    const [playGo] = useSound(fx2, { volume: 0.4 });
 
     // Setters & Getters
 
-    const timerSetter = (newTime) => {
-        if (newTime <= 5) setTimerLength(5);
-        else setTimerLength(newTime);
+    const timerSetter = (inputTime) => {
+        let newTime = inputTime;
+        if (inputTime <= 5) newTime = 5;
+        setTimerLength(newTime);
+        setTimeLeftMinutes(newTime);
     };
 
-    const breakSetter = (newTime) => {
-        if (newTime <= 5) setBreakLength(5);
-        else setBreakLength(newTime);
+    const breakSetter = (inputTime) => {
+        if (inputTime <= 5) setBreakLength(5);
+        else setBreakLength(inputTime);
     };
 
     const runningSetter = (value) => {

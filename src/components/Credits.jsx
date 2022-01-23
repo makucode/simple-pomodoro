@@ -6,7 +6,10 @@ const Credits = () => {
     return (
         <div className={styles.Credits}>
             <span>
-                by <a href="https://makuco.de">makucode</a>
+                by{" "}
+                <a className={styles.CreditsLink} href="https://makuco.de">
+                    <span>makucode</span>
+                </a>
             </span>
             <a
                 href="https://github.com/makucode/simple-pomodoro"
