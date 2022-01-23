@@ -25,7 +25,7 @@ const TimerControl = () => {
                     <div className={styles.Length}>
                         <span id="session-length">{timerLength}</span> min
                     </div>
-                    <AnimatePresence>
+                    <AnimatePresence exitBeforeEnter>
                         <motion.div
                             key={isRunning}
                             initial="pageInitial"
@@ -33,7 +33,7 @@ const TimerControl = () => {
                             exit="pageExit"
                             variants={animations}
                         >
-                            {!isRunning && (
+                            {!isRunning ? (
                                 <div className={styles.TimerController}>
                                     <span
                                         id="session-increment"
@@ -50,6 +50,10 @@ const TimerControl = () => {
                                         }
                                     ></span>
                                 </div>
+                            ) : (
+                                <div
+                                    className={styles.TimerControlPlaceholder}
+                                ></div>
                             )}
                         </motion.div>
                     </AnimatePresence>
@@ -64,7 +68,7 @@ const TimerControl = () => {
                     <div className={styles.Length}>
                         <span id="break-length">{breakLength}</span> min
                     </div>
-                    <AnimatePresence>
+                    <AnimatePresence exitBeforeEnter>
                         <motion.div
                             key={isRunning}
                             initial="pageInitial"
@@ -72,7 +76,7 @@ const TimerControl = () => {
                             exit="pageExit"
                             variants={animations}
                         >
-                            {!isRunning && (
+                            {!isRunning ? (
                                 <div className={styles.TimerController}>
                                     <span
                                         id="break-increment"
@@ -89,6 +93,10 @@ const TimerControl = () => {
                                         }
                                     ></span>
                                 </div>
+                            ) : (
+                                <div
+                                    className={styles.TimerControlPlaceholder}
+                                ></div>
                             )}
                         </motion.div>
                     </AnimatePresence>
