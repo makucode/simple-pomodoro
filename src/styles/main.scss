@@ -22,6 +22,10 @@ a {
 
 // Utility
 
+.App {
+    overflow: hidden;
+}
+
 .Running {
     fill: $green !important;
     color: $green !important;
