@@ -42,7 +42,7 @@ export const TimerProvider = ({ children }) => {
         setIsBreak(false);
         setIsPause(false);
         setTimeLeftMinutes(timerLength);
-        setTimeLeftSeconds(60);
+        setTimeLeftSeconds(0);
     };
 
     const togglePause = () => {

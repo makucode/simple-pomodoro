@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useContext } from "react";
 import { TimerContext } from "../contexts/TimerContext";
 import styles from "../styles/components/TimerControl.module.scss";
+import { fadeInScale } from "../utils/animations";
 
 const TimerControl = () => {
     const {
@@ -11,6 +12,8 @@ const TimerControl = () => {
         setTimerLength,
         isRunning,
     } = useContext(TimerContext);
+
+    const animations = fadeInScale;
 
     return (
         <div className={styles.TimerControl}>
@@ -22,20 +25,34 @@ const TimerControl = () => {
                     <div className={styles.Length}>
                         <span id="session-length">{timerLength}</span> min
                     </div>
-                    {!isRunning && (
-                        <div className={styles.TimerController}>
-                            <span
-                                id="session-increment"
-                                className={styles.Inc}
-                                onClick={() => setTimerLength(timerLength + 5)}
-                            ></span>
-                            <span
-                                id="session-decrement"
-                                className={styles.Dec}
-                                onClick={() => setTimerLength(timerLength - 5)}
-                            ></span>
-                        </div>
-                    )}
+                    <AnimatePresence>
+                        <motion.div
+                            key={isRunning}
+                            initial="pageInitial"
+                            animate="pageAnimate"
+                            exit="pageExit"
+                            variants={animations}
+                        >
+                            {!isRunning && (
+                                <div className={styles.TimerController}>
+                                    <span
+                                        id="session-increment"
+                                        className={styles.Inc}
+                                        onClick={() =>
+                                            setTimerLength(timerLength + 5)
+                                        }
+                                    ></span>
+                                    <span
+                                        id="session-decrement"
+                                        className={styles.Dec}
+                                        onClick={() =>
+                                            setTimerLength(timerLength - 5)
+                                        }
+                                    ></span>
+                                </div>
+                            )}
+                        </motion.div>
+                    </AnimatePresence>
                 </div>
             </div>
             <div className={styles.TimerControlDivider}></div>
@@ -47,8 +64,14 @@ const TimerControl = () => {
                     <div className={styles.Length}>
                         <span id="break-length">{breakLength}</span> min
                     </div>
-                    <AnimatePresence exitBeforeEnter>
-                        <motion.div>
+                    <AnimatePresence>
+                        <motion.div
+                            key={isRunning}
+                            initial="pageInitial"
+                            animate="pageAnimate"
+                            exit="pageExit"
+                            variants={animations}
+                        >
                             {!isRunning && (
                                 <div className={styles.TimerController}>
                                     <span
