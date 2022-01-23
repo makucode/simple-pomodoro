@@ -25,8 +25,8 @@ const Caption = () => {
                         isRunning && isPause && styles.CaptionPause
                     }`}
                 >
-                    {isRunning && !isBreak && !isPause && "Focus"}
-                    {isRunning && isBreak && !isPause && "Break"}
+                    {isRunning && !isBreak && !isPause && "Time to focus"}
+                    {isRunning && isBreak && !isPause && "Take a break"}
                     {isRunning && isPause && "Paused"}
                     {!isRunning && "Get shit done!"}
                 </h1>

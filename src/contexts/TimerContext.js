@@ -1,4 +1,7 @@
 import { createContext, useEffect, useState } from "react";
+import fx1 from "../assets/soundfx-1.mp3";
+import fx2 from "../assets/soundfx-2.mp3";
+import useSound from "use-sound";
 
 export const TimerContext = createContext();
 
@@ -14,6 +17,11 @@ export const TimerProvider = ({ children }) => {
     const [timeLeftSeconds, setTimeLeftSeconds] = useState(0);
 
     let clockTimeout = null;
+
+    // Sound
+
+    const [playEnd] = useSound(fx1, { volume: 0.5 });
+    const [playGo] = useSound(fx2, { volume: 0.5 });
 
     // Setters & Getters
 
@@ -60,6 +68,7 @@ export const TimerProvider = ({ children }) => {
             } else setTimeLeftSeconds(timeLeftSeconds - 1);
         } else {
             setTimeLeftMinutes(isBreak ? timerLength : breakLength);
+            isBreak ? playGo() : playEnd();
             setTimeLeftSeconds(0);
             setIsBreak(!isBreak);
         }
