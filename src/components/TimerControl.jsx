@@ -44,7 +44,11 @@ const TimerControl = () => {
                                     ></span>
                                     <span
                                         id="session-decrement"
-                                        className={styles.Dec}
+                                        className={
+                                            styles.Dec +
+                                            " " +
+                                            (timerLength <= 5 && styles.Hide)
+                                        }
                                         onClick={() =>
                                             setTimerLength(timerLength - 5)
                                         }
@@ -87,7 +91,11 @@ const TimerControl = () => {
                                     ></span>
                                     <span
                                         id="break-decrement"
-                                        className={styles.Dec}
+                                        className={
+                                            styles.Dec +
+                                            " " +
+                                            (breakLength <= 5 && styles.Hide)
+                                        }
                                         onClick={() =>
                                             setBreakLength(breakLength - 5)
                                         }

@@ -95,3 +95,8 @@
 .TimerControlDivider::after {
     transform: rotate(90deg) translateY(-8px);
 }
+
+.Hide {
+    pointer-events: none;
+    visibility: hidden;
+}

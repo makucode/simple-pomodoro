@@ -14,6 +14,10 @@
     font-size: 6rem;
 }
 
+.SessionSeconds {
+    animation: sessionIn 0.2s ease-in-out forwards;
+}
+
 .SessionTimeDivider {
     display: block;
 }
@@ -36,4 +40,15 @@
 
 .SessionTimeDivider::before {
     transform: translateY(-6px);
+}
+
+@keyframes sessionIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) rotateX(-30deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px) rotateX(0deg);
+    }
 }

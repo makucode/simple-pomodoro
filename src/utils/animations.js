@@ -1,7 +1,7 @@
 export const fadeInUp = {
     pageInitial: {
         opacity: 0,
-        transform: "translateY(50px)",
+        transform: "translateY(40px)",
     },
     pageAnimate: {
         opacity: 1,
@@ -9,7 +9,22 @@ export const fadeInUp = {
     },
     pageExit: {
         opacity: 0,
-        transform: "translateY(50px)",
+        transform: "translateY(40px)",
+    },
+};
+
+export const fadeInRotate = {
+    pageInitial: {
+        opacity: 0,
+        transform: "translateY(-20px) rotateX(-30deg)",
+    },
+    pageAnimate: {
+        opacity: 1,
+        transform: "translateY(0px) rotateX(0deg)",
+    },
+    pageExit: {
+        opacity: 0,
+        transform: "translateY(20px) rotateX(20deg)",
     },
 };
 

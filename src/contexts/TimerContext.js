@@ -10,11 +10,17 @@ export const TimerProvider = ({ children }) => {
     const [isPause, setIsPause] = useState(false);
     const [isBreak, setIsBreak] = useState(false);
 
-    const [timerLength, setTimerLength] = useState(25);
-    const [breakLength, setBreakLength] = useState(5);
+    const [timerLength, setTimerLength] = useState(
+        parseInt(localStorage.getItem("timerLength")) || 25
+    );
+    const [breakLength, setBreakLength] = useState(
+        parseInt(localStorage.getItem("breakLength")) || 5
+    );
 
     const [timeLeftMinutes, setTimeLeftMinutes] = useState(timerLength);
     const [timeLeftSeconds, setTimeLeftSeconds] = useState(0);
+
+    // Id of setTimeout of current instance/render
 
     let clockTimeout = null;
 
@@ -29,16 +35,20 @@ export const TimerProvider = ({ children }) => {
         let newTime = inputTime;
         if (inputTime <= 5) newTime = 5;
         setTimerLength(newTime);
-        setTimeLeftMinutes(newTime);
+
+        localStorage.setItem("timerLength", newTime);
     };
 
     const breakSetter = (inputTime) => {
-        if (inputTime <= 5) setBreakLength(5);
-        else setBreakLength(inputTime);
+        let newTime = inputTime;
+        if (inputTime <= 5) newTime = 5;
+        setBreakLength(newTime);
+
+        localStorage.setItem("breakLength", newTime);
     };
 
-    const runningSetter = (value) => {
-        if (value) {
+    const runningSetter = (shouldRun) => {
+        if (shouldRun) {
             setIsPause(false);
             setIsRunning(true);
         } else {
@@ -47,6 +57,10 @@ export const TimerProvider = ({ children }) => {
     };
 
     const stopTimer = () => {
+        if (!isRunning) {
+            timerSetter(25);
+            breakSetter(5);
+        }
         clockTimeout && clearTimeout(clockTimeout);
         setIsRunning(false);
         setIsBreak(false);
@@ -59,6 +73,10 @@ export const TimerProvider = ({ children }) => {
         clockTimeout && clearTimeout(clockTimeout);
         setIsPause(!isPause);
     };
+
+    // Update time Remaining when timer length changes
+
+    useEffect(() => setTimeLeftMinutes(timerLength), [timerLength]);
 
     // Clock Logic
 
